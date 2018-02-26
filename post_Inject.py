@@ -1,10 +1,18 @@
 # post注入
+# 判断是数字型还是字符型注入
 import requests
 from termcolor import cprint
+import threading
+from queue import Queue
 
-class post_Inject:
+event = threading.Event()
+event.set()
+q = Queue(-1)
+
+class post_Inject(threading.Thread):
 
     def __init__(self, data_path):
+        threading.Thread.__init__(self)
         self.data_path = data_path
         self.url, self.params = self.get_url_parame()  # 获取请求网站的路径和post提交的参数
         self.paramsList = self.params.split('&')       # 将字符串型的参数改为已&分割的列表
@@ -90,5 +98,5 @@ class post_Inject:
                     else:
                         cprint('[{}] 不是字符型注入。'.format(self.num,), 'green')
 
-data_path = r'C:\Users\Asus\Desktop\py\py3\single\sqli\1.txt'
+data_path = r'C:\Users\Asus\Desktop\py\py3\project\sql_inject_fuzz\1.txt'
 post_Inject(data_path).attack()
