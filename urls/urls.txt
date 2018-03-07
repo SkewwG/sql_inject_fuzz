@@ -1,0 +1,11 @@
+http://demo.sqli.com/Less-1/?id=1
+http://demo.sqli.com/Less-2/?id=1
+http://demo.sqli.com/Less-3/?id=1
+http://demo.sqli.com/Less-4/?id=1
+http://demo.sqli.com/Less-5/?id=1
+http://demo.sqli.com/Less-6/?id=1
+http://demo.sqli.com/Less-7/?id=1
+http://demo.sqli.com/Less-8/?id=1
+http://demo.sqli.com/Less-9/?id=1
+http://demo.sqli.com/Less-10/?id=1
+http://demo.sqli.com/Less-11/?id=1

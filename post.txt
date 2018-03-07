@@ -1,0 +1,12 @@
+POST /Less-11/ HTTP/1.1
+Host: demo.sqli.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 34
+Referer: http://demo.sqli.com/Less-11/
+Connection: close
+Upgrade-Insecure-Requests: 1
+
+uname=123&passwd=123&submit=Submit
