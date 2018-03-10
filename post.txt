@@ -9,4 +9,4 @@ Referer: http://demo.sqli.com/Less-11/
 Connection: close
 Upgrade-Insecure-Requests: 1
 
-uname=123&passwd=123&submit=Submit
+uname=admin&passwd=123&submit=Submit

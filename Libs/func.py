@@ -36,7 +36,7 @@ class FuzzFunction():
         try:
             if hasattr(md, 'Fuzz'):
                 fuzz = getattr(md, 'Fuzz')(url=url, cookie=cookie, postPath=postPath)
-                RedPayloads, YellowPayloads, BluePayloads, GreenPayloads = fuzz.attack()
+                RedPayloads, YellowPayloads, BluePayloads, GreenPayloads, wafPayloads = fuzz.attack()
                 # col.OutputGreen('[+Success] : {}'.format(ret)) if ret else col.OutputRed('[-Fail]')
                 print('Output Result : ↓')
                 if RedPayloads:
@@ -55,6 +55,10 @@ class FuzzFunction():
                     for BluePayload in BluePayloads:
                         col.OutputBlue('[$Maybe$] : {}'.format(BluePayload))
                         self.save(domain, BluePayload)
+                if wafPayloads:
+                    for wafPayload in wafPayloads:
+                        col.OutputRed('[-检测到WAF-] : {}'.format(wafPayload))
+                        self.save(domain, wafPayload)
                 if GreenPayloads:
                     pass
                     # for GreenPayload in GreenPayloads:
