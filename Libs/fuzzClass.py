@@ -35,6 +35,7 @@ class FuzzFather:
         self.num = 0
         self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads, self.wafPayloads = [], [], [], [], []
         self.ret = {}           # 打印json格式结果
+        self.Payloads = []
         self.waf = Waf()
 
     # 返回请求url的响应包和响应包长度
@@ -71,7 +72,7 @@ class FuzzFather:
             self.ret['payload'] = waf_exist['payload']
             self.ret['waf'] = waf_exist['wafName']
             cprint(self.ret, 'red')
-            self.wafPayloads.append(self.ret)
+            self.Payloads.append(self.ret)
 
         # 无论用and还是xor，如果是结果页面不同的注入点，那么payload1和payload2肯定不同，且其中一个同standard_length相同。
         elif (standard_length == payload_length1 and payload_length1 != payload_length2) or (standard_length == payload_length2 and payload_length1 != payload_length2):
@@ -81,7 +82,7 @@ class FuzzFather:
             self.ret['payload'] = payload1 + '-----' + payload2
             self.ret['waf'] = 'None'
             cprint(self.ret, 'red')
-            self.RedPayloads.append(self.ret)
+            self.Payloads.append(self.ret)
         elif 'SQL syntax' in text1 or 'SQL syntax' in text2:
             #out_ret = '[+{}+] SQL syntax  [{}] payload : [{}]'.format(num, payload_length1, payload1)
             self.ret['success'] = 'True'
@@ -89,7 +90,7 @@ class FuzzFather:
             self.ret['payload'] = payload1 + '-----' + payload2
             self.ret['waf'] = 'None'
             cprint(self.ret, "yellow")
-            self.YellowPayloads.append(self.ret)
+            self.Payloads.append(self.ret)
         elif 'Warning' in text1 or 'Warning' in text2:
             #out_ret = '[+{}+] Warning  [{}] payload : [{}]'.format(num, payload_length1, payload1)
             self.ret['success'] = 'True'
@@ -97,7 +98,7 @@ class FuzzFather:
             self.ret['payload'] = payload1 + '-----' + payload2
             self.ret['waf'] = 'None'
             cprint(self.ret, "yellow")
-            self.YellowPayloads.append(self.ret)
+            self.Payloads.append(self.ret)
         elif 'mysql_error' in text1 or 'mysql_error' in text2:
             #out_ret = '[+{}+] mysql_error  [{}] payload : [{}]'.format(num, payload_length1, payload1)
             self.ret['success'] = 'True'
@@ -105,7 +106,7 @@ class FuzzFather:
             self.ret['payload'] = payload1 + '-----' + payload2
             self.ret['waf'] = 'None'
             cprint(self.ret, "yellow")
-            self.YellowPayloads.append(self.ret)
+            self.Payloads.append(self.ret)
         # 为了过滤无论逻辑真假，页面都不变的注入点, 因为如果都不变，则payload_length1等于payload_length2。例如第一关
         elif standard_length != payload_length1 and payload_length1 == payload_length2:
             #out_ret = '[${}$] 可能存在{}注入  [{}] payload : [{}]'.format(num, type_inject, payload_length1, payload1)
@@ -114,12 +115,13 @@ class FuzzFather:
             self.ret['payload'] = payload1 + '-----' + payload2
             self.ret['waf'] = 'None'
             cprint(self.ret, "blue")
-            self.BluePayloads.append(self.ret)
+            self.Payloads.append(self.ret)
         # standard_length, payload_length1, payload_length2都相等
         else:
-            out_ret = '[-{}-] 不是{}注入。'.format(num, type_inject)
+            pass
+            #out_ret = '[-{}-] 不是{}注入。'.format(num, type_inject)
             # cprint(out_ret, 'green')
-            self.GreenPayloads.append(out_ret)
+            #self.GreenPayloads.append(out_ret)
         self.ret = {}
 
     # 第一功能探测是否存在注入：单引号，双引号，反斜杠，负数，特殊字符，and，or，xor！！！
@@ -251,3 +253,4 @@ class FuzzFather:
                                text1=text1, text2=text2, num=self.num, func='char_payload')
 
                     self.num += 1
+

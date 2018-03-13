@@ -19,18 +19,18 @@
     <SUITE FILE_PATH="coverage/sql_inject_fuzz$digit_char_Inject.coverage" NAME="digit_char_Inject Coverage Results" MODIFIED="1520258240017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sql_inject_fuzz$scan.coverage" NAME="scan Coverage Results" MODIFIED="1520400634942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sql_inject_fuzz$post_Inject.coverage" NAME="post_Inject Coverage Results" MODIFIED="1520408996110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Fuzz/post" />
-    <SUITE FILE_PATH="coverage/sql_inject_fuzz$blind_Inject.coverage" NAME="blind_Inject Coverage Results" MODIFIED="1520334712912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Fuzz/get" />
     <SUITE FILE_PATH="coverage/sql_inject_fuzz$blind_Inject__1_.coverage" NAME="blind_Inject (1) Coverage Results" MODIFIED="1520338512429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/error_blind" />
     <SUITE FILE_PATH="coverage/sql_inject_fuzz$fuzzClass.coverage" NAME="fuzzClass Coverage Results" MODIFIED="1520611489257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Libs" />
-    <SUITE FILE_PATH="coverage/sql_inject_fuzz$error_Inject.coverage" NAME="error_Inject Coverage Results" MODIFIED="1520572703180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/error_blind" />
+    <SUITE FILE_PATH="coverage/sql_inject_fuzz$blind_Inject.coverage" NAME="blind_Inject Coverage Results" MODIFIED="1520918259169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/error_blind" />
+    <SUITE FILE_PATH="coverage/sql_inject_fuzz$error_Inject.coverage" NAME="error_Inject Coverage Results" MODIFIED="1520917908633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/error_blind" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Libs/func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+            <state relative-caret-position="473">
+              <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -51,9 +51,13 @@
       <file leaf-file-name="fuzzClass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Libs/fuzzClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-535">
-              <caret line="72" column="35" lean-forward="true" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="2052">
+              <caret line="78" column="33" lean-forward="false" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+              <folding>
+                <element signature="e#6074#7656#0" expanded="false" />
+                <element signature="e#7764#10268#0" expanded="false" />
+                <element signature="e#10375#13287#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +75,8 @@
       <file leaf-file-name="GET_digit_char_Inject.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fuzz/get/GET_digit_char_Inject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="311">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#81#96#0" expanded="true" />
               </folding>
@@ -83,8 +87,8 @@
       <file leaf-file-name="lrzdjx.com.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ret/lrzdjx.com.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,6 +99,38 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="667">
               <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="POST_digit_char_Inject.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blind_Inject.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/error_blind/blind_Inject.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <element signature="e#19#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error_Inject.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/error_blind/error_Inject.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -143,11 +179,12 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py.py" />
         <option value="$PROJECT_DIR$/post.txt" />
-        <option value="$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py" />
         <option value="$PROJECT_DIR$/demo.py" />
         <option value="$PROJECT_DIR$/Libs/waf.py" />
-        <option value="$PROJECT_DIR$/Libs/func.py" />
+        <option value="$PROJECT_DIR$/error_blind/blind_Inject.py" />
         <option value="$PROJECT_DIR$/Libs/fuzzClass.py" />
+        <option value="$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py" />
+        <option value="$PROJECT_DIR$/Libs/func.py" />
         <option value="$PROJECT_DIR$/Fuzz/get/GET_digit_char_Inject.py" />
         <option value="$PROJECT_DIR$/ret/lrzdjx.com.txt" />
       </list>
@@ -164,7 +201,7 @@
       <scroll-view-position x="0" y="0" />
     </layout>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1932" />
     <option name="height" value="1047" />
@@ -190,6 +227,11 @@
             <path>
               <item name="sql_inject_fuzz" type="b2602c69:ProjectViewProjectNode" />
               <item name="sql_inject_fuzz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sql_inject_fuzz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sql_inject_fuzz" type="462c0819:PsiDirectoryNode" />
+              <item name="error_blind" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sql_inject_fuzz" type="b2602c69:ProjectViewProjectNode" />
@@ -251,7 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.demo">
+  <component name="RunManager" selected="Python.blind_Inject">
     <configuration name="GET_digit_char_Inject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,20 +332,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="POST_digit_char_Inject.py" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="blind_Inject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Fuzz/post" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/error_blind" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sql_inject_fuzz" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/error_blind/blind_Inject.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -328,20 +370,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="fuzzClass" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="error_Inject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Libs" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/error_blind" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sql_inject_fuzz" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Libs/fuzzClass.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/error_blind/error_Inject.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -349,18 +391,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.GET_digit_char_Inject" />
-      <item index="1" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python.fuzzClass" />
-      <item index="3" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject" />
-      <item index="4" class="java.lang.String" itemvalue="Python.demo" />
+      <item index="1" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject" />
+      <item index="2" class="java.lang.String" itemvalue="Python.demo" />
+      <item index="3" class="java.lang.String" itemvalue="Python.error_Inject" />
+      <item index="4" class="java.lang.String" itemvalue="Python.blind_Inject" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.demo" />
-        <item index="1" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject" />
-        <item index="2" class="java.lang.String" itemvalue="Python.GET_digit_char_Inject" />
-        <item index="3" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python.fuzzClass" />
+        <item index="0" class="java.lang.String" itemvalue="Python.blind_Inject" />
+        <item index="1" class="java.lang.String" itemvalue="Python.error_Inject" />
+        <item index="2" class="java.lang.String" itemvalue="Python.demo" />
+        <item index="3" class="java.lang.String" itemvalue="Python.POST_digit_char_Inject" />
+        <item index="4" class="java.lang.String" itemvalue="Python.GET_digit_char_Inject" />
       </list>
     </recent_temporary>
   </component>
@@ -381,14 +423,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1932" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.096463025" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35584137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12160751" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -556,13 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/error_blind/error_Inject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2556">
-          <caret line="74" column="14" lean-forward="false" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py.py" />
     <entry file="file://$PROJECT_DIR$/ret/t.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -580,27 +615,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py">
+    <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="48" column="35" lean-forward="true" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+        <state relative-caret-position="667">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/error_blind/error_Inject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/error_blind/blind_Inject.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="79" />
-          <folding />
+        <state relative-caret-position="266">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="e#19#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -622,16 +659,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Libs/fuzzClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="72" column="35" lean-forward="true" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="2052">
+          <caret line="78" column="33" lean-forward="false" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+          <folding>
+            <element signature="e#6074#7656#0" expanded="false" />
+            <element signature="e#7764#10268#0" expanded="false" />
+            <element signature="e#10375#13287#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libs/func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="473">
+          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -640,18 +681,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Fuzz/get/GET_digit_char_Inject.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="311">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#81#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Fuzz/post/POST_digit_char_Inject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ret/lrzdjx.com.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

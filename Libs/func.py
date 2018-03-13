@@ -36,31 +36,34 @@ class FuzzFunction():
         try:
             if hasattr(md, 'Fuzz'):
                 fuzz = getattr(md, 'Fuzz')(url=url, cookie=cookie, postPath=postPath)
-                RedPayloads, YellowPayloads, BluePayloads, GreenPayloads, wafPayloads = fuzz.attack()
+                Payloads = fuzz.attack()
                 # col.OutputGreen('[+Success] : {}'.format(ret)) if ret else col.OutputRed('[-Fail]')
                 print('Output Result : ↓')
-                if RedPayloads:
-                    for RedPayload in RedPayloads:
-                        col.OutputRed(RedPayload)
-                        self.save(domain, RedPayload)
-
-                        # with open('{}/ret/ret.txt'.format(os.getcwd()), 'at') as f:
-                        #     ret = '%-30s %s\n' % (url, expName)
-                        #     f.writelines(ret)
-                if YellowPayloads:
-                    for YellowPayload in YellowPayloads:
-                        col.OutputYellow(YellowPayload)
-                        self.save(domain, YellowPayload)
-                if BluePayloads:
-                    for BluePayload in BluePayloads:
-                        col.OutputBlue(BluePayload)
-                        self.save(domain, BluePayload)
-                if wafPayloads:
-                    for wafPayload in wafPayloads:
-                        col.OutputRed(wafPayload)
-                        self.save(domain, wafPayload)
-                if GreenPayloads:
-                    pass
+                for payload in Payloads:
+                    print(payload)
+                    self.save(domain, str(payload))
+                # if RedPayloads:
+                #     for RedPayload in RedPayloads:
+                #         col.OutputRed(RedPayload)
+                #         self.save(domain, RedPayload)
+                #
+                #         # with open('{}/ret/ret.txt'.format(os.getcwd()), 'at') as f:
+                #         #     ret = '%-30s %s\n' % (url, expName)
+                #         #     f.writelines(ret)
+                # if YellowPayloads:
+                #     for YellowPayload in YellowPayloads:
+                #         col.OutputYellow(YellowPayload)
+                #         self.save(domain, YellowPayload)
+                # if BluePayloads:
+                #     for BluePayload in BluePayloads:
+                #         col.OutputBlue(BluePayload)
+                #         self.save(domain, BluePayload)
+                # if wafPayloads:
+                #     for wafPayload in wafPayloads:
+                #         col.OutputRed(wafPayload)
+                #         self.save(domain, wafPayload)
+                # if GreenPayloads:
+                #     pass
                     # for GreenPayload in GreenPayloads:
                     #     col.OutputGreen('[-Fail-] : {}'.format(GreenPayload))
         except Exception as e:
