@@ -24,8 +24,15 @@ import requests
 #             print('ok')
 
 
-url1 = 'http://192.168.1.131/sqltest.php?x=1 xor 1'
-url2 = 'http://192.168.1.131/sqltest.php?x=1 xor 0'
-r1 = len(requests.get(url1).text)
-r2 = len(requests.get(url2).text)
-print(r1, r2)
+# url1 = 'http://192.168.1.131/sqltest.php?x=1 xor 1'
+# url2 = 'http://192.168.1.131/sqltest.php?x=1 xor 0'
+# r1 = len(requests.get(url1).text)
+# r2 = len(requests.get(url2).text)
+# print(r1, r2)
+
+url = 'https://staticfile.tujia.com/crossdomain.xml'
+res = requests.get(url)
+print(res.text)
+
+
+ret = {'success': 'True/False', 'type': 'digit/char', 'payload': '', 'waf': ''}

@@ -26,7 +26,7 @@ class FuzzFunction():
     def save(self, domain, colPayload):
         path = root_path + '/ret/{}.txt'.format(domain)
         with open(path, 'at', encoding='utf-8') as f:
-            f.writelines(colPayload + '\n')
+            f.writelines(str(colPayload) + '\n')
 
     # 执行payload
     def FuzzPayload(self, url, cookie, fuzzScriptName, postPath):
@@ -41,7 +41,7 @@ class FuzzFunction():
                 print('Output Result : ↓')
                 if RedPayloads:
                     for RedPayload in RedPayloads:
-                        col.OutputRed('[+Success+] : {}'.format(RedPayload))
+                        col.OutputRed(RedPayload)
                         self.save(domain, RedPayload)
 
                         # with open('{}/ret/ret.txt'.format(os.getcwd()), 'at') as f:
@@ -49,15 +49,15 @@ class FuzzFunction():
                         #     f.writelines(ret)
                 if YellowPayloads:
                     for YellowPayload in YellowPayloads:
-                        col.OutputYellow('[+SQL syntax+] : {}'.format(YellowPayload))
+                        col.OutputYellow(YellowPayload)
                         self.save(domain, YellowPayload)
                 if BluePayloads:
                     for BluePayload in BluePayloads:
-                        col.OutputBlue('[$Maybe$] : {}'.format(BluePayload))
+                        col.OutputBlue(BluePayload)
                         self.save(domain, BluePayload)
                 if wafPayloads:
                     for wafPayload in wafPayloads:
-                        col.OutputRed('[-检测到WAF-] : {}'.format(wafPayload))
+                        col.OutputRed(wafPayload)
                         self.save(domain, wafPayload)
                 if GreenPayloads:
                     pass

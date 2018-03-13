@@ -70,8 +70,8 @@ class Fuzz(FuzzFather):
 
     # 攻击
     def attack(self):
-        #self.test_sql(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')            # url是请求的路径，params是post型参数
-        #self.digit_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
+        self.test_sql(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')            # url是请求的路径，params是post型参数
+        self.digit_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
         self.char_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
         return self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads, self.wafPayloads
 

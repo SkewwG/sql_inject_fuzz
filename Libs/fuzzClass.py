@@ -34,7 +34,7 @@ class FuzzFather:
 
         self.num = 0
         self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads, self.wafPayloads = [], [], [], [], []
-
+        self.ret = {}           # 打印json格式结果
         self.waf = Waf()
 
     # 返回请求url的响应包和响应包长度
@@ -53,7 +53,7 @@ class FuzzFather:
                 return '', 0
 
     # 检测是否是注入
-    def check(self, standard_length, payload_length1, payload_length2, payload1, text1, text2, num, func):
+    def check(self, standard_length, payload_length1, payload_length2, payload1, payload2, text1, text2, num, func):
         type_inject = ''
         if func == 'test_sql':
             pass
@@ -65,36 +65,62 @@ class FuzzFather:
         waf_exist = self.waf.detect(text=text1)
         # 检测是否触发网站的waf
         if waf_exist['Flag'] == 'True':
-            cprint('[-{}-] {}'.format(num, waf_exist['wafName']), 'red')
-            self.wafPayloads.append(waf_exist['wafName'])
+            #cprint('[-{}-] {}'.format(num, waf_exist['wafName']), 'red')
+            self.ret['success'] = 'Maybe'
+            self.ret['type'] = type_inject
+            self.ret['payload'] = waf_exist['payload']
+            self.ret['waf'] = waf_exist['wafName']
+            cprint(self.ret, 'red')
+            self.wafPayloads.append(self.ret)
 
         # 无论用and还是xor，如果是结果页面不同的注入点，那么payload1和payload2肯定不同，且其中一个同standard_length相同。
         elif (standard_length == payload_length1 and payload_length1 != payload_length2) or (standard_length == payload_length2 and payload_length1 != payload_length2):
-            out_ret = '[+{}+] {}注入  [{}] payload : [{}]'.format(num, type_inject, payload_length1, payload1)
-            cprint(out_ret, "red")
-            self.RedPayloads.append(out_ret)
+            #out_ret = '[+{}+] {}注入  [{}] payload : [{}]'.format(num, type_inject, payload_length1, payload1)
+            self.ret['success'] = 'True'
+            self.ret['type'] = type_inject
+            self.ret['payload'] = payload1 + '-----' + payload2
+            self.ret['waf'] = 'None'
+            cprint(self.ret, 'red')
+            self.RedPayloads.append(self.ret)
         elif 'SQL syntax' in text1 or 'SQL syntax' in text2:
-            out_ret = '[+{}+] SQL syntax  [{}] payload : [{}]'.format(num, payload_length1, payload1)
-            cprint(out_ret, "yellow")
-            self.YellowPayloads.append(out_ret)
+            #out_ret = '[+{}+] SQL syntax  [{}] payload : [{}]'.format(num, payload_length1, payload1)
+            self.ret['success'] = 'True'
+            self.ret['type'] = 'SQL syntax'
+            self.ret['payload'] = payload1 + '-----' + payload2
+            self.ret['waf'] = 'None'
+            cprint(self.ret, "yellow")
+            self.YellowPayloads.append(self.ret)
         elif 'Warning' in text1 or 'Warning' in text2:
-            out_ret = '[+{}+] Warning  [{}] payload : [{}]'.format(num, payload_length1, payload1)
-            cprint(out_ret, "yellow")
-            self.YellowPayloads.append(out_ret)
+            #out_ret = '[+{}+] Warning  [{}] payload : [{}]'.format(num, payload_length1, payload1)
+            self.ret['success'] = 'True'
+            self.ret['type'] = 'Warning'
+            self.ret['payload'] = payload1 + '-----' + payload2
+            self.ret['waf'] = 'None'
+            cprint(self.ret, "yellow")
+            self.YellowPayloads.append(self.ret)
         elif 'mysql_error' in text1 or 'mysql_error' in text2:
-            out_ret = '[+{}+] mysql_error  [{}] payload : [{}]'.format(num, payload_length1, payload1)
-            cprint(out_ret, "yellow")
-            self.YellowPayloads.append(out_ret)
+            #out_ret = '[+{}+] mysql_error  [{}] payload : [{}]'.format(num, payload_length1, payload1)
+            self.ret['success'] = 'True'
+            self.ret['type'] = 'mysql_error'
+            self.ret['payload'] = payload1 + '-----' + payload2
+            self.ret['waf'] = 'None'
+            cprint(self.ret, "yellow")
+            self.YellowPayloads.append(self.ret)
         # 为了过滤无论逻辑真假，页面都不变的注入点, 因为如果都不变，则payload_length1等于payload_length2。例如第一关
         elif standard_length != payload_length1 and payload_length1 == payload_length2:
-            out_ret = '[${}$] 可能存在{}注入  [{}] payload : [{}]'.format(num, type_inject, payload_length1, payload1)
-            cprint(out_ret, "blue")
-            self.BluePayloads.append(out_ret)
+            #out_ret = '[${}$] 可能存在{}注入  [{}] payload : [{}]'.format(num, type_inject, payload_length1, payload1)
+            self.ret['success'] = 'Maybe'
+            self.ret['type'] = type_inject
+            self.ret['payload'] = payload1 + '-----' + payload2
+            self.ret['waf'] = 'None'
+            cprint(self.ret, "blue")
+            self.BluePayloads.append(self.ret)
         # standard_length, payload_length1, payload_length2都相等
         else:
             out_ret = '[-{}-] 不是{}注入。'.format(num, type_inject)
             # cprint(out_ret, 'green')
             self.GreenPayloads.append(out_ret)
+        self.ret = {}
 
     # 第一功能探测是否存在注入：单引号，双引号，反斜杠，负数，特殊字符，and，or，xor！！！
     def test_sql(self, url, params, headers, standard_length, type):
@@ -125,7 +151,7 @@ class FuzzFather:
                     continue
 
                 self.check(standard_length=standard_length, payload_length1=payload_length,
-                           payload_length2=payload_length, payload1=payload,
+                           payload_length2=payload_length, payload1=payload, payload2=payload,
                            text1=text, text2=text, num=self.num,  func='test_sql')
                 self.num += 1
 
@@ -171,7 +197,7 @@ class FuzzFather:
 
 
                 self.check(standard_length=standard_length, payload_length1=payload_length1,
-                           payload_length2=payload_length2, payload1=payload1,
+                           payload_length2=payload_length2, payload1=payload1, payload2=payload2,
                            text1=text1, text2=text2, num=self.num,  func='digit_payload')
                 self.num += 1
 
@@ -221,7 +247,7 @@ class FuzzFather:
                         continue
 
                     self.check(standard_length=standard_length, payload_length1=payload_length1,
-                               payload_length2=payload_length2, payload1=payload1,
+                               payload_length2=payload_length2, payload1=payload1, payload2=payload2,
                                text1=text1, text2=text2, num=self.num, func='char_payload')
 
                     self.num += 1
