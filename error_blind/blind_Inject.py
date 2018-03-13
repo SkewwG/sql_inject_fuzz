@@ -70,6 +70,6 @@ class blind_Inject:
 
 
     #url = "http://demo.sqli.com/Less-9/?id=1'"
-url = 'http://w.gs98.cn/index.php?g=Wap&m=Dining&a=ShowDetail&id=2'
+url = 'http://demo.sqli.com/Less-10/?id=1"'
 
 blind_Inject(url).attack()

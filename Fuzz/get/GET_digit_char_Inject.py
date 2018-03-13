@@ -25,10 +25,12 @@ class Fuzz(FuzzFather):
 
 
     def attack(self):
-        self.test_sql(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')     # url是请求的路径，params是get型参数
-        self.digit_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
-        self.char_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
-        self.error_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
+        #self.test_sql(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')     # url是请求的路径，params是get型参数
+        #self.digit_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
+        #self.char_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
+        #self.error_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
+        self.blind_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length,
+                           type='get')
         return self.Payloads
 
 
