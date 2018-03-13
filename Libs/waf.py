@@ -18,7 +18,6 @@ class Waf:
             return {'Flag': 'False'}
 
 
-
     def aliyun(self, text):
         return True if 'https://errors.aliyun.com/images' in text else ''
 

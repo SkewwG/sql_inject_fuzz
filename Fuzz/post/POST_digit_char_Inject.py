@@ -73,6 +73,7 @@ class Fuzz(FuzzFather):
         self.test_sql(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')            # url是请求的路径，params是post型参数
         self.digit_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
         self.char_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
+        self.error_payload(url=self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='post')
         return self.Payloads
 
 

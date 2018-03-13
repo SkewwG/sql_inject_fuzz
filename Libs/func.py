@@ -40,7 +40,7 @@ class FuzzFunction():
                 # col.OutputGreen('[+Success] : {}'.format(ret)) if ret else col.OutputRed('[-Fail]')
                 print('Output Result : ↓')
                 for payload in Payloads:
-                    print(payload)
+                    col.OutputRed(payload)
                     self.save(domain, str(payload))
                 # if RedPayloads:
                 #     for RedPayload in RedPayloads:

