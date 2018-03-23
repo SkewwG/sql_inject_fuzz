@@ -30,9 +30,10 @@ import requests
 # r2 = len(requests.get(url2).text)
 # print(r1, r2)
 
-url = 'https://staticfile.tujia.com/crossdomain.xml'
+from termcolor import cprint
+url = 'https://baidu.com'
 res = requests.get(url)
-print(res.text)
+cprint('1', 'red')
 
 
-ret = {'success': 'True/False', 'type': 'digit/char', 'payload': '', 'waf': ''}
+#ret = {'success': 'True/False', 'type': 'digit/char', 'payload': '', 'waf': ''}

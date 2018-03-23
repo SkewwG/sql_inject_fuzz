@@ -26,11 +26,11 @@ class Fuzz(FuzzFather):
 
     def attack(self):
         #self.test_sql(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')     # url是请求的路径，params是get型参数
-        #self.digit_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
+        self.digit_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
         #self.char_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
         #self.error_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length, type='get')
-        self.blind_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length,
-                           type='get')
+        #self.blind_payload(self.url, params=self.params, headers=self.headers, standard_length=self.standard_length,
+        #                   type='get')
         return self.Payloads
 
 
@@ -39,7 +39,7 @@ class Fuzz(FuzzFather):
 # cookies = 'PHPSESSID=mfo83ugq1km65d6oa2bb0fds43; security=low'
 # url1 = "http://demo.dvwa.com/vulnerabilities/sqli/?id=1&Submit=Submit#"
 
-# cookies = None
-# #url1 = 'http://lrzdjx.com/sqli/Less-1/?id=1'
-# url1 = 'http://demo.sqli.com/Less-3/?id=1'
-# Fuzz(url1, cookies).attack()
+cookies = None
+# # #url1 = 'http://lrzdjx.com/sqli/Less-1/?id=1'
+url1 = 'http://demo.sqli.com/Less-2/?id=1'
+Fuzz(url1, cookies).attack()
